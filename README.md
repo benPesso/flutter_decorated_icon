@@ -2,7 +2,7 @@
 
 An Icon that supports shadow decorations.
 
-![snapshot](assets/images/snapshot.png)
+![snapshot](example/assets/images/snapshot.png)
 
 ## Usage
 
