@@ -1,14 +1,21 @@
 # Deocared Icon
 
-An Icon that supports shadow decorations.
+The best-performing shadowed icon widget for Flutter!
 
-![snapshot](example/assets/images/snapshot.png)
+`DecoratedIcon` is a super lightweight Icon widget that supports shadow decorations. With no complicated hacks or multiple widgets, and with only a single dozen of code lines, the shadows are applied to the icon as perfectly as they would be applied to a `Text` widget.
+
+This widget is able to achieve the most efficient, most flexible implementation of an icon with a shadow because it is using a single `Text` widget to display the icon and apply the shadows to it.
+
+One caveat to be aware of is the order of stacking of the shadows by Flutter; the first shadow in the list will be painted at the bottom. Similar to how the [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) widget draws its children.
+
 
 ## Usage
 
 To use this plugin, add `decorated_icon` as a [dependency in your pubspec.yaml file](https://flutter.io/using-packages/).
 
 ## Example
+
+![snapshot](example/assets/images/snapshot.png)
 
 Import the library.
 
@@ -51,7 +58,6 @@ Scaffold(
               blurRadius: 12.0,
               color: Colors.green,
               offset: Offset(0, 6.0),
-              spreadRadius: 60.0,
             ),
           ],
         ),
