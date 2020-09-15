@@ -6,7 +6,9 @@ The best-performing shadowed icon widget for Flutter!
 
 This widget is able to achieve the most efficient, most flexible implementation of an icon with a shadow because it is using a single `Text` widget to display the icon and apply the shadows to it.
 
-One caveat to be aware of is the order of stacking of the shadows by Flutter; the first shadow in the list will be painted at the bottom. Similar to how the [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) widget draws its children.
+One thing to keep in mind when using multiple shadows is the order of stacking of the shadows by Flutter; the first shadow in the list will be painted at the bottom. (Similar to how the [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) widget draws its children.)
+
+Also note that due to Flutter's current limitation, achieving an **Outer Glow** effect is not currently possible. You can follow more [here](https://github.com/flutter/flutter/issues/65763).
 
 
 ## Usage

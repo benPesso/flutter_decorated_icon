@@ -1,6 +1,6 @@
 name: decorated_icon
-description: An icon that supports shadow decorations.
-version: 1.0.0
+description: A lightweight, efficient icon widget that supports a list of shadow effects.
+version: 1.0.2
 repository: https://github.com/benPesso/flutter_decorated_icon
 
 environment:
