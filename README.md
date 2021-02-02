@@ -1,3 +1,5 @@
+[![pub package](https://img.shields.io/pub/v/decorated_icon.svg)](https://pub.dev/packages/decorated_icon)
+
 # Deocared Icon
 
 The best-performing shadowed icon widget for Flutter!
@@ -13,7 +15,7 @@ Also note that due to Flutter's current limitation, achieving an **Outer Glow** 
 
 ## Usage
 
-To use this plugin, add `decorated_icon` as a [dependency in your pubspec.yaml file](https://flutter.io/using-packages/).
+To use this package, add `decorated_icon` as a [dependency in your pubspec.yaml file](https://flutter.io/using-packages/).
 
 ## Example
 
