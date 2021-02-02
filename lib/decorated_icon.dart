@@ -43,6 +43,7 @@ class DecoratedIcon extends StatelessWidget {
         fontSize: size,
         height: 1,
         inherit: false,
+        package: icon.fontPackage,
         shadows: shadows,
       ),
     );
