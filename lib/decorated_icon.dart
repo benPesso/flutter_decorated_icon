@@ -7,7 +7,7 @@ class DecoratedIcon extends StatelessWidget {
   /// The color of the icon.
   ///
   /// Defaults to white, based on Flutter's defaults for uninherited [TextStyle] values.
-  final Color color;
+  final Color? color;
 
   /// The [IconData] to use as the icon. (E.g.: `Icons.favorite`)
   final IconData icon;
@@ -16,16 +16,16 @@ class DecoratedIcon extends StatelessWidget {
   ///
   /// Note that Flutter stacks shadows in reverse order.
   /// Meaning the bottom-most shadow will display over the other shadows in the list.
-  final List<Shadow> shadows;
+  final List<Shadow>? shadows;
 
   /// The size of the icon.
   ///
   /// Defaults to 10 pixels, based on Flutter's defaults for uninherited [TextStyle] values.
-  final double size;
+  final double? size;
 
   const DecoratedIcon(
     this.icon, {
-    Key key,
+    Key? key,
     this.color,
     this.shadows,
     this.size,
