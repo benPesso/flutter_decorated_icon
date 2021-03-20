@@ -4,8 +4,8 @@ version: 1.0.3
 repository: https://github.com/benPesso/flutter_decorated_icon
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
