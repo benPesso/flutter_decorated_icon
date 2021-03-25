@@ -1,3 +1,8 @@
+## [1.1.0]
+
+- Migrated to Null safety.
+- Fixed spelling mistake in README.md file.
+
 ## [1.0.3]
 
 - Added `icon.fontPackage` to the icon's text style.

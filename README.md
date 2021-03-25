@@ -1,6 +1,6 @@
 [![pub package](https://img.shields.io/pub/v/decorated_icon.svg)](https://pub.dev/packages/decorated_icon)
 
-# Deocared Icon
+# Decorated Icon
 
 The best-performing shadowed icon widget for Flutter!
 
