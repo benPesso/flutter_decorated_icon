@@ -2,6 +2,8 @@
 library decorated_icon;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart'
+    show DiagnosticPropertiesBuilder, DoubleProperty;
 
 /// An icon that can be easily decorated with shadows.
 class DecoratedIcon extends StatelessWidget {
@@ -83,5 +85,13 @@ class DecoratedIcon extends StatelessWidget {
       label: semanticLabel,
       child: ExcludeSemantics(child: iconWidget),
     );
+  }
+
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        IconDataProperty('icon', icon, ifNull: '<empty>', showName: false));
+    properties.add(DoubleProperty('size', size, defaultValue: null));
+    properties.add(ColorProperty('color', color, defaultValue: null));
   }
 }
