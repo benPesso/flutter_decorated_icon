@@ -1,3 +1,8 @@
+## [1.2.0]
+
+- Added support for TextDirection, Semantics, and Debugging.
+- Minor updates in README.md.
+
 ## [1.1.0]
 
 - Migrated to Null safety.

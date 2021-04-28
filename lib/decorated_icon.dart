@@ -1,12 +1,26 @@
+/// Provides a [DecoratedIcon] that can be easily decorated with shadows.
 library decorated_icon;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart'
+    show DiagnosticPropertiesBuilder, DoubleProperty;
 
 /// An icon that can be easily decorated with shadows.
 class DecoratedIcon extends StatelessWidget {
+  /// An icon that can be easily decorated with shadows.
+  const DecoratedIcon(
+    this.icon, {
+    Key? key,
+    this.size,
+    this.color,
+    this.shadows,
+    this.semanticLabel,
+    this.textDirection,
+  }) : super(key: key);
+
   /// The color of the icon.
   ///
-  /// Defaults to white, based on Flutter's defaults for uninherited [TextStyle] values.
+  /// Defaults to white, based on defaults for uninherited [TextStyle] values.
   final Color? color;
 
   /// The [IconData] to use as the icon. (E.g.: `Icons.favorite`)
@@ -18,22 +32,25 @@ class DecoratedIcon extends StatelessWidget {
   /// Meaning the bottom-most shadow will display over the other shadows in the list.
   final List<Shadow>? shadows;
 
-  /// The size of the icon.
+  /// The size of the icon in logical pixels.
   ///
-  /// Defaults to 10 pixels, based on Flutter's defaults for uninherited [TextStyle] values.
+  /// Defaults to `10.0`, based on defaults for uninherited [TextStyle] values.
   final double? size;
 
-  const DecoratedIcon(
-    this.icon, {
-    Key? key,
-    this.color,
-    this.shadows,
-    this.size,
-  }) : super(key: key);
+  /// Label announced with accessibility modes active
+  /// (such as TalkBack or VoiceOver) but not shown in the UI.
+  final String? semanticLabel;
+
+  /// Will have no effect if [icon]'s [IconData.matchTextDirection] field is `false`,
+  /// but a `DecoratedIcon` must provide text direction for specification coherence:
+  /// either directly with this value or, if `null`, ambient [Directionality.of].
+  final TextDirection? textDirection;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final iconDirection = textDirection ?? Directionality.of(context);
+
+    Widget iconWidget = Text(
       String.fromCharCode(icon.codePoint),
       style: TextStyle(
         color: color,
@@ -47,5 +64,34 @@ class DecoratedIcon extends StatelessWidget {
         shadows: shadows,
       ),
     );
+
+    if (icon.matchTextDirection) {
+      switch (iconDirection) {
+        case TextDirection.rtl:
+          // Mirrors over Y-axis
+          iconWidget = Transform(
+            transform: Matrix4.identity()..scale(-1.0, 1.0, 1.0), // scales X
+            alignment: Alignment.center,
+            transformHitTests: false,
+            child: iconWidget,
+          );
+          break;
+        case TextDirection.ltr:
+          break;
+      }
+    }
+
+    return Semantics(
+      label: semanticLabel,
+      child: ExcludeSemantics(child: iconWidget),
+    );
+  }
+
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        IconDataProperty('icon', icon, ifNull: '<empty>', showName: false));
+    properties.add(DoubleProperty('size', size, defaultValue: null));
+    properties.add(ColorProperty('color', color, defaultValue: null));
   }
 }
