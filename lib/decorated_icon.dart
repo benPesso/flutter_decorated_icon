@@ -49,15 +49,16 @@ class DecoratedIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final iconDirection = textDirection ?? Directionality.of(context);
+    final iconTheme = IconTheme.of(context);
 
     Widget iconWidget = Text(
       String.fromCharCode(icon.codePoint),
       style: TextStyle(
-        color: color,
+        color: color ?? iconTheme.color,
         decoration: TextDecoration.none,
         fontFamily: icon.fontFamily,
         fontWeight: FontWeight.normal,
-        fontSize: size,
+        fontSize: size ?? iconTheme.size,
         height: 1,
         inherit: false,
         package: icon.fontPackage,
